@@ -8,8 +8,8 @@ class Detector:
 	cascade1 = cv2.CascadeClassifier(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'cascades', "haarcascade_mcs_rightear.xml"))
 
 	def detect(self, img):
-		det_list = self.cascade.detectMultiScale(img, 3.0, 1)
-		det_list1 = self.cascade1.detectMultiScale(img, 3.0, 1)
+		det_list = self.cascade.detectMultiScale(img, 1.02, 1)
+		det_list1 = self.cascade1.detectMultiScale(img, 1.02, 1)
 		novi_seznam = list()
 		novi_seznam.extend(det_list)
 		novi_seznam.extend(det_list1)
