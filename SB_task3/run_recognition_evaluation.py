@@ -55,8 +55,10 @@ class EvaluateAll:
         pix2pix = p2p_ext.Pix2Pix(resize)
         
         #lbp extractor
+        num_points = 8
+        radius = 3
         import feature_extractors.lbp.extractor as lbp_ext
-        lbp = lbp_ext.LBP(resize,24,8,1e-7)
+        lbp = lbp_ext.LBP(resize,num_points,radius,1e-7)
         
         #hog extractor
         import feature_extractors.hog.extractor as hog_ext
@@ -101,14 +103,14 @@ class EvaluateAll:
         Y_plain_lbphog = cdist(lbphog_features_arr, lbphog_features_arr, mera_razdalje)
         #print(Y_plain)
         #print(y)
-        r1 = eval.compute_rank1(Y_plain, y)
-        print('Pix2Pix Rank-1[%]', r1)
-        r1_lbp = eval.compute_rank1(Y_plain_lbp, y)
-        print('LBP Rank-1[%]', r1_lbp)
-        r1_hog = eval.compute_rank1(Y_plain_hog, y)
-        print('HOG Rank-1[%]', r1_hog)
-        r1_lbphog = eval.compute_rank1(Y_plain_lbphog, y)
-        print('LBPHOG Rank-1[%]', r1_lbphog)
+        #r1 = eval.compute_rank1(Y_plain, y)
+        #print('Pix2Pix Rank-1[%]', r1)
+        #r1_lbp = eval.compute_rank1(Y_plain_lbp, y)
+        #print('LBP Rank-1[%]', r1_lbp)
+        #r1_hog = eval.compute_rank1(Y_plain_hog, y)
+        #print('HOG Rank-1[%]', r1_hog)
+        #r1_lbphog = eval.compute_rank1(Y_plain_lbphog, y)
+        #print('LBPHOG Rank-1[%]', r1_lbphog)
         
         razredi_po_slikah_pix = eval.rankc_for_plot(Y_plain,y)
         razredi_po_slikah_lbp = eval.rankc_for_plot(Y_plain_lbp,y)
